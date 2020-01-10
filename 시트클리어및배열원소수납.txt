@@ -1,0 +1,26 @@
+Sub 연습()
+    Dim varName() As String
+    Dim i As Long
+    Dim sum As Long
+    
+    Dim err_msg As String
+    
+    err_msg = "A/B/C/D/E/F/G"
+    
+    'need all clear
+    Cells.Select
+    Selection.ClearContents
+    
+    Cells(1.1).Value = err_msg
+    
+    i = UBound(Split(Cells(1, 1), "/")) - LBound(Split(Cells(1, 1), "/")) + 1
+    
+    
+    ReDim varName(1 To i)
+    varName = Split(Cells(1, 1), "/")
+       
+    For sum = 0 To i - 1
+        Cells(sum + 1, 1).Value = varName(sum)
+    Next sum
+
+End Sub
