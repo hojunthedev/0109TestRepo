@@ -1,0 +1,46 @@
+using System;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            string[] values = new string[9];
+            int i = 0;
+            while (i<9)
+            {
+                var inputValue = Console.ReadLine();
+                values[i] = inputValue;
+                i++;
+            }
+            string[] copyValues = new string[9];
+
+            for(int d = 0; d < 9; d++)
+            {
+                copyValues[d] = values[d];
+            }
+
+            Array.Sort(values);
+            var max = values[8];
+            int savePosition = 0;
+            for(int p = 0; p < 9; p++)
+            {
+                if (copyValues[p] == max)
+                {
+                    savePosition = p + 1;
+                    break;
+                }
+            }
+            Console.WriteLine("{0}\n{1}", max, savePosition);
+        }
+    }
+}
+
+
+
+
+
+\n <--- correct
+
+"\r\n" <--- 콘솔에서 동작. 6.0에서 동작하지않음

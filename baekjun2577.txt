@@ -1,0 +1,21 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    var inputA = int.Parse(Console.ReadLine());
+    var inputB = int.Parse(Console.ReadLine());
+    var inputC = int.Parse(Console.ReadLine());
+    
+    var multiply = inputA * inputB * inputC;
+    string parseMult = multiply.ToString();
+    
+    for(int i=0;i<10;i++){
+      int count = 0;
+      foreach(var element in parseMult){
+        if(element.ToString() == i.ToString()) count++;
+        else continue;
+      };
+      Console.WriteLine(count);
+    }
+  }
+}
