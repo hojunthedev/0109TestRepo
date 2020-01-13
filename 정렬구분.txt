@@ -1,0 +1,23 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    //string[] defIncValues = {"1","2","3","4","5","6","7","8"};
+    //string[] defDecValues = {"8","7","6","5","4","3","2","1"};
+    string[] inputValues = Console.ReadLine().Split();
+    string  res = null; 
+
+    for(int i=0;i<8;i++){
+      if(inputValues[i] == (i+1).ToString()){
+        res = "ascending";
+      }
+      else if(inputValues[i] == (8-i).ToString()){
+        res = "descending";
+      }
+      else{
+        res = "mixed";
+      }
+    }
+    Console.WriteLine(res);
+  }
+}
