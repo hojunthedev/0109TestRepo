@@ -1,0 +1,21 @@
+using System;
+using System.Collections.Generic;
+
+class MainClass {
+  public static void Main (string[] args) {
+    int i = 0;
+    var arr = new List<int>();
+    
+    while(i<10){
+      var value = int.Parse(Console.ReadLine()) % 42;
+      if(arr.Contains(value)){
+        i++;
+      }
+      else{
+        arr.Add(value);
+        i++;
+      }
+    }
+    Console.WriteLine(arr.Count);
+  }
+}
