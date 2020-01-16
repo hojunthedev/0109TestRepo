@@ -1,0 +1,75 @@
+Sub CSV부르기()
+    Dim path As String, textline As String
+    Dim arr() As String, i As Integer, nRow As Integer
+    
+'파일주소
+    path = "D:\dataset.csv"
+    
+'1에 모든 데이터 저장
+    Open path For Input As #1
+    
+'파일이 끝날때까지 반복
+    Do Until EOF(1)
+        nRow = nRow + 1 '행
+        Line Input #1, textline 'header1,header2 = textline
+        arr() = Split(textline, ",")
+        
+        For i = 0 To UBound(arr)
+            Cells(nRow, i + 1).Value = arr(i)
+        Next i
+    Loop
+    Close #1
+  
+'UTF-8로 csv파일 저장
+    Dim len_row As Long '行
+    Dim len_col As Long
+    
+    '행의 수를 구하기
+    For len_row = Cells(Rows.Count, "A").End(xlUp).Row To 1 Step -1
+        If Cells(len_row, "A") <> "" Then Exit For
+    Next len_row   '最後行?を返す
+    
+    '헤더열의 수 구하기
+    For len_col = Cells(1, Columns.Count).End(xlToLeft).Column To 1
+        If Cells(1, len_col) <> "" Then Exit For
+    Next len_col   '最後行?を返す
+    
+    Dim head_value As String
+    
+    For a = 1 To len_col
+        If a = len_col Then
+            head_value = head_value & Cells(1, a) & Chr(13)
+        Else
+            head_value = head_value & Cells(1, a) & ","
+        End If
+    Next
+    
+    MsgBox head_value
+    
+'    Dim fimeName As String
+'    Filename = "nonono.csv"
+'
+'    Dim st As String
+'    st = "D:\honhan" & "\" & Filename
+'
+'
+'
+'    Dim ado_stream As Object
+'    Set ado_stream = CreateObject("ADODB.Stream")
+'    With ado_stream
+'         .Charset = "utf-8"
+'         .Open
+'         .WriteText result, 1
+'         .SaveToFile st, 2
+'         .Close
+'    End With
+'
+'    MsgBox "csv출력완료"
+'
+    '열의 수 구하기
+    
+    
+    
+    
+    
+End Sub
