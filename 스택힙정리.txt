@@ -1,1 +1,2 @@
-https://okcharles.blog.me/221559192492
+https://okcharles.blog.me/221559192492 <- 스택힙정리
+https://nrhan.tistory.com/entry/originmaster%EC%9D%98-%EC%9D%98%EB%AF%B8%EC%99%80-fetch <- 오리진마스터와 마스터 정리
