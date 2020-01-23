@@ -1,0 +1,18 @@
+Private Sub worksheet_change(ByVal Target As Range)
+    
+    
+    If Not Intersect(Range("b1"), Target) Is Nothing Then
+        If Cells(1, "A").Find(What:="*", LookIn:=xlValues) Is Nothing Then
+            MsgBox "need SSC check"
+            Application.EnableEvents = False
+            Target.ClearContents
+            Application.EnableEvents = True
+            Exit Sub
+            'Target.ClearContent 'でも、削除してまたセルの?容が?更されるので無限ル?プに入ります。
+        Else
+            MsgBox "동작중"
+        End If
+            
+    End If
+    
+End Sub
