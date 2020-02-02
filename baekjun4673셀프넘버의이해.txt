@@ -1,1 +1,26 @@
 https://morm.tistory.com/57 <- 
+
+
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    int[] notSN = new int[10000];
+    
+    //만 까지 계산할 for
+    for(int x=1;x<10001;x++){
+      notSN[x] = Props;
+    }
+
+    //
+  }
+
+  //원래 수 + 그 수의 자릿수 + a
+  static int Props(string val){
+      var correntVal = int.Parse(val);
+      for(int i=0;i<val.Length;i++){
+        correntVal = correntVal + int.Parse(val[i]);
+      }
+      return correntVal;
+    }
+}
