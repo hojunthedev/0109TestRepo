@@ -1,26 +1,35 @@
-https://morm.tistory.com/57 <- 
-
-
 using System;
 
 class MainClass {
   public static void Main (string[] args) {
     int[] notSN = new int[10000];
     
-    //만 까지 계산할 for
     for(int x=1;x<10001;x++){
-      notSN[x] = Props;
+      notSN[x-1] = NotSelfNumber(x.ToString());
     }
-
-    //
+    
+    for(int y=1;y<10001;y++){
+      var flag = false;
+      for(int z=0;z<10000;z++){
+        if(y == notSN[z]){
+          flag = false;
+          break;
+        }
+        else{
+          flag = true;
+          continue;
+        }
+      }
+      if(flag) Console.WriteLine(y);
+    }
+    return;
   }
 
-  //원래 수 + 그 수의 자릿수 + a
-  static int Props(string val){
+  static int NotSelfNumber(string val){
       var correntVal = int.Parse(val);
       for(int i=0;i<val.Length;i++){
-        correntVal = correntVal + int.Parse(val[i]);
+        correntVal += int.Parse(val[i].ToString());
       }
       return correntVal;
-    }
+  }
 }
