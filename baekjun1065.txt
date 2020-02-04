@@ -1,0 +1,24 @@
+using System;
+
+class MainClass {
+  public static void Main(string[] args){
+    var inputValue = int.Parse(Console.ReadLine());
+    int count = Counting(inputValue);  
+    Console.WriteLine(count);
+  } 
+
+  static int Counting(int inputValue){
+    int count = 0;
+    for(int i=1;i<=inputValue;i++){
+      if(i < 100) count++;
+      else if(i == 1000) break;
+      else{
+        int a = i / 100;
+        int b = i % 100 / 10;
+        int c = i % 10;
+        if(a - b == b - c) count++;
+      }
+    }
+    return count;
+  }
+}
