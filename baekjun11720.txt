@@ -1,0 +1,17 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    var strLen = Console.ReadLine();
+    var strNum = Console.ReadLine();
+    int len = int.Parse(strLen);
+    if(strNum.Length>len) throw new Exception("over");
+    int[] arr = new int[len];
+    int result=0;
+    for(int a=0;a<arr.Length;a++){
+      var num = strNum[a].ToString();
+      result += int.Parse(num);   
+    }
+    Console.WriteLine(result);
+  }
+}
