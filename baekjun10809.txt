@@ -1,0 +1,16 @@
+using System;
+using System.Text;
+
+class MainClass {
+  public static void Main (string[] args) {
+    string inputWords = Console.ReadLine ();
+    string alphabets = "abcdefghijklmnopqrstuvwxyz";
+    var sb = new StringBuilder();
+    foreach(var alpha in alphabets){
+      int? index = inputWords.IndexOf(alpha.ToString());
+      if(index == null) sb.Append("-1 ");
+      else sb.Append(index.ToString() + " ");
+    }
+    Console.WriteLine(sb.ToString().TrimEnd());
+  }
+}
