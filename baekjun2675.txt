@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class MainClass {
+  public static void Main (string[] args) {
+    int times = int.Parse(Console.ReadLine());
+    var list = new List<string>();
+    for(int i=0;i<times;i++){
+      string[] arr = Console.ReadLine().Split();
+      var cnt = int.Parse(arr[0]);
+      var alp = arr[1]; 
+      var sb = new StringBuilder();
+      for(int j=0;j<alp.Length;j++){
+        for(int e=0;e<cnt;e++){
+          sb.Append(alp[j]);
+        }
+      }
+      sb.Append("\n");
+      list.Add(sb.ToString());
+    }
+    Console.WriteLine(Result(list));
+  }
+  
+  static string Result(List<string> list){
+    var sb2 = new StringBuilder();
+    for(int p=0;p<list.Count;p++){
+      sb2.Append(list[p]);
+    }
+    return sb2.ToString().TrimEnd();
+  }
+}
