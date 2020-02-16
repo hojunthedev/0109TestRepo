@@ -1,0 +1,15 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class MainClass {
+  public static void Main (string[] args) {
+    var inputValue = Console.ReadLine().ToUpper();
+    var list = new List<string>();
+    for(int i=0;i<inputValue.Length;i++){
+      list.Add(inputValue[i].ToString());
+    }
+    
+
+  }
+}
