@@ -1,15 +1,21 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 
 class MainClass {
   public static void Main (string[] args) {
-    var inputValue = Console.ReadLine().ToUpper();
-    var list = new List<string>();
-    for(int i=0;i<inputValue.Length;i++){
-      list.Add(inputValue[i].ToString());
-    }
-    
+    int q = 65;
+    var p = (char)q;
 
+    Console.WriteLine(p.ToString());
+    
+    // var inputValues = Console.ReadLine().ToUpper();
+    char[] chr = new char[26];
+    int j=0;
+    for(int i=65;i<=90;i++){
+      chr[j] = (char)i;
+      j++;
+    }
+    Console.WriteLine(chr[2]);
   }
 }
+
+-아스키코드의 이해
