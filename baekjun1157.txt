@@ -1,23 +1,30 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 class MainClass {
   public static void Main (string[] args) {
-    int q = 65;
-    var p = (char)q;
+    string inputValues = Console.ReadLine().ToUpper();
+    int len = inputValues.Length;
+    var dic = new Dictionary<string,int>();
+    var result = string.Empty;
 
-    Console.WriteLine(p.ToString());
-    
-    // var inputValues = Console.ReadLine().ToUpper();
-    char[] chr = new char[26];
-    int j=0;
-    for(int i=65;i<=90;i++){
-      chr[j] = (char)i;
-      j++;
+    for(int p=0;p<len;p++){
+      var inputKey = inputValues[p].ToString();
+      if(!dic.ContainsKey(inputKey)){
+        dic.Add(inputKey, 1);
+      }
+      else if(dic.TryGetValue(inputKey,out int num)){
+        dic[inputKey] = num+=1;
+      }
+      else continue;
     }
-    Console.WriteLine(chr[2]);
+    var queryDic = dic.OrderByDescending(x => x.Value).ToList();
+    
+    if(queryDic.Count == 1) result = queryDic[0].Key;
+    else if(queryDic[0].Value == queryDic[1].Value) result = "?";
+    else result = queryDic[0].Key;
+
+    Console.WriteLine(result);
   }
 }
-
-0226 생일이니까 하루만더 쉴게요
-
--아스키코드의 이해

@@ -1,0 +1,9 @@
+using System;
+
+class MainClass {
+  public static void Main (string[] args) {
+    string[] inputValues = Console.ReadLine().Trim().Split();
+    if(inputValues[0]=="") Console.WriteLine("0");
+    else Console.WriteLine(inputValues.Length);
+  }
+}
