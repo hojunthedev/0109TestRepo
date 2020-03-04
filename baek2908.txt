@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+class MainClass {
+  public static void Main (string[] args) {
+    string[] inputValues = Console.ReadLine().Trim().Split();
+    var fst = inputValues[0].ToString();
+    var scd = inputValues[1].ToString();
+    var resStr = new StringBuilder();
+    var stack = new Stack<string>();
+    var res = 0;
+    var p = ChangeValue(fst, resStr, stack);
+    var s = ChangeValue(scd, resStr, stack);
+
+    if(p > s) Console.WriteLine(p);
+    else Console.WriteLine(s);
+
+  }
+  static int ChangeValue(string value, StringBuilder res, Stack<string> stack){
+    for(int i=0;i<value.Length;i++){
+      stack.Push(value[i].ToString());
+    }
+    for(int j=0;j<value.Length;j++){
+      res.Append(stack.Pop());
+    }
+    var str = res.ToString();
+    res.Clear();
+    return int.Parse(str); 
+  } 
+}
