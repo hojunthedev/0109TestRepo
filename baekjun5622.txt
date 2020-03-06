@@ -19,3 +19,7 @@ class MainClass {
     Console.WriteLine(dic[2][2]);
   }
 }
+
+
+
+char -> -65 로 간단하게 풀자
