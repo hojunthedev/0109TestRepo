@@ -1,0 +1,5 @@
+초보때 그냥 넘겼던 이론을 이해하기 위함
+
+== Equal Operator  은 		'값'만
+=== Strict Equal operator		'값'과 '타입/형식'
+
