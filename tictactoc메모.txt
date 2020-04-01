@@ -1,0 +1,8 @@
+if(calculateWinner(squares) || squares[i]){
+      return;
+    }
+
+calculateWinner가 null인지 값이 있는지 판단하여야하고
+squeares[i]의 값 존재여부도 확인해야하는데
+.exist 라던지 값을 검색하지 않고 저렇게 기재 해도 
+리액트는 알아서 판단해 주는건지... 신기하네
