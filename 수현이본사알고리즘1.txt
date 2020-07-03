@@ -1,0 +1,32 @@
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public class Main {
+  public static void main(String[] args) throws Exception {
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    // 入力パラメータを読み込む
+    String input = br.readLine();
+    String[] param = input.split(" ");//入力値を空白で分解する
+    // ここに回答を記述する
+    String params = param[0] + param[1];  
+    String result = "";
+    
+    int fromIndex = -1;
+
+    for(int a=1;a<10;a++){
+      String x = Integer.toString(a);
+      int cnt = 0;
+      while((fromIndex = params.indexOf(x, fromIndex + 1)) >= 0){
+        cnt++;
+      }
+      String y = Integer.toString(cnt);
+      if(cnt != 0){
+        result += x + y;
+      }
+    }
+    System.out.println(result);
+  }
+}
