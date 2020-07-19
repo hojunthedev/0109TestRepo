@@ -3,3 +3,26 @@
 == Equal Operator  은 		'값'만
 === Strict Equal operator		'값'과 '타입/형식'
 
+자바스크립트의 클래스
+
+자식클래스의 constructor의 super는 부모클래스의 constructor함수를 부르기 위함
+this로 자기 자신을 먼저 불러서는 안됨.(에러)
+
+크롬에서 js 타입확인
+-> typeof xx === yy
+
+화살표함수는 결과값을 바로 반환할 경우 중괄호 생각하고 return도 생략가능함
+화살표함수는, 함수 표현식을 간결히 할 수 있고, 이후 커링(curryng)과 같은 디자인패턴에
+사용되는 함수를 반환할때, '계단형 함수선언' 과 같은 구조가 만들어지지 않게 해준다는
+장점이 있다.
+그리고 this객체를 전달하는 bind 과정을 포함하고 있다.
+
+배열 전개연산자는 배열표현식 없이 사용하면 에러
+
+삭제연산자
+var combined = {one : 1, two : 2, three:3, other : 0}
+delete combined.other
+값 = {one : 1, two : 2, three:3}
+
+
+
