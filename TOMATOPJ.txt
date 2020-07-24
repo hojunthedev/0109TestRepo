@@ -79,3 +79,17 @@ input의 변경이벤트 시 state가 배열이라면 변경이 어디서 일어
 문제 : 값을 state로 가져올때 id를 주지 않아서 인풋태그의 id = 값으로 하여
 새로 배열을 생성할 시 문제가 된다.
 id값을 넣어보자.
+
+var state = {info : [{id:2, value:"A"},{id:3, value:"B"}]}
+이런식으로 선언해야하는데 ..?
+
+state.info
+(2) [{…}, {…}]0: {id: 2, value: "A"}1: {id: 3, value: "B"}length: 2__proto__: Array(0)
+typeof state.info
+"object"
+
+Object.keys(state.info)
+(2) ["0", "1"]0: "0"1: "1"length: 2__proto__: Array(0)
+이부분 힌트. 중요.
+key가 알아서 붙여지는 모양이다. 이 key를 이용하자
+
