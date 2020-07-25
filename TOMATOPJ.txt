@@ -93,3 +93,14 @@ Object.keys(state.info)
 이부분 힌트. 중요.
 key가 알아서 붙여지는 모양이다. 이 key를 이용하자
 
+
+0725 22:52분 해결 사흘밤낮을 고민한 로직은 이하
+pjDetailChange = (e) =>{
+    const { projectDetail } = this.state;
+    this.setState({
+      projectDetail : projectDetail.map(
+        (info, i=0) =>  projectDetail.indexOf(info, i++) == e.target.id ? e.target.value : info //TODO:現時点問題ロジック
+      )
+    });
+  };
+포기할뻔했는데 잘했다. 내 자신
