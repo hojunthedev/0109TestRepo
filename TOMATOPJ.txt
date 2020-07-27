@@ -103,4 +103,27 @@ pjDetailChange = (e) =>{
       )
     });
   };
-포기할뻔했는데 잘했다. 내 자신
+
+0727 체크박스 처리추가
+이거도 한참을 땀뺏다..
+//checkbox 入力切り替え処理
+  checkboxChange = (e) => {
+    const {classification} = this.state;
+    var check = true;
+    if(e.target.checked == false) check = false;
+    else check=true;
+    console.log(check);
+    console.log(e.target.id);
+    console.log(e.target.checked);
+    this.setState({
+      classification : classification.map(
+      item => e.target.id === item.name
+      ? {...item, value : check}
+      : item 
+    )})
+    console.log(classification);
+  }
+
+?뒤가 중요
+
+
