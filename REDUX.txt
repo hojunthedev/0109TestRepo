@@ -1,0 +1,28 @@
+REDUX를 사용하는 이유 
+->안정성, state 통제 용이
+
+개념
+->컴포넌트의 모든 state를 관리할 수 있는 중앙 통제실의 개념
+
+용어정리
+->store : 스테이트가 모아져 있는 곳 (어플리케이션의 현재 상태를 가짐)
+->reducer : action의 결과로 state를 어떻게 바꿀지를 정의 (변화를 일으키는 순수함수)
+	-> (이전상태, 액션) => 다음 상태 반환(상태변경x 새로운 상태 반환)
+->action : state를 변경하는 행동 (작업에 대한 정보를 지니고 있는 '객체')
+->dispatch : action을 실행. (action과 같다고 봐도 무방)
+
+※순수함수 : 비동기 작업x,  인수 변경x, 동일한 인수 = 동일한 결과
+
+
+
+es6 문법
+// if(typeof state === 'undifined') {
+    //     return initialState;
+    // } 를 줄인게 (state = initialState) 
+
+객체 State 꿀팁 URL
+https://www.youtube.com/watch?v=YdlbmiAtD_4
+
+타입,액션,리듀서 만들었으니
+스토어 차례, 그 스토어를 컴포넌트에 연결하자.
+
