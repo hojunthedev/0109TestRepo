@@ -6,6 +6,8 @@ REDUX를 사용하는 이유
 
 용어정리
 ->store : 스테이트가 모아져 있는 곳 (어플리케이션의 현재 상태를 가짐)
+	->dispatch(action) / getState() 현재상태 반환 / subscribe(listener) 상태바뀔떄마다 실행할 함수 등록 /
+		
 ->reducer : action의 결과로 state를 어떻게 바꿀지를 정의 (변화를 일으키는 순수함수)
 	-> (이전상태, 액션) => 다음 상태 반환(상태변경x 새로운 상태 반환)
 ->action : state를 변경하는 행동 (작업에 대한 정보를 지니고 있는 '객체')
@@ -26,3 +28,25 @@ https://www.youtube.com/watch?v=YdlbmiAtD_4
 타입,액션,리듀서 만들었으니
 스토어 차례, 그 스토어를 컴포넌트에 연결하자.
 
+
+=======================================================
+react-redux에 관해 : 뷰 레이어 바인딩 도구
+provider
+->제공하다. 컴포넌트에서 redux를 사용하도록 서비스 제공(하나의 컴포넌트이다)
+	-> ex) <Provider store={store)> <App/> </Provider> 이렇게 감싸준다.
+
+connect([..options])
+-> 컴포넌트를 redux에 연결하는 '또 다른' 함수를 반환합니다
+	-> 옵션이 없으면 this.props.store로 접근 가능
+connect(
+  [mapStateToProps],	--함수형파라미터, state를 파라미터로 가지고 state를 해당 컴포넌트의 props로 연결해줌
+  [mapDispatchToProps],	--함수형파라미터, dispatch를 함수로 가지고, dispatch안의 함수를 props로 연결해줌
+  [mergeProps],		--함수형파라미터, state와 dispatch를 파라메터로 가져서, 만약 component에 연결할... 잘사용x
+  [options]		--객체형태, {[pure = true], [withRef=false]}보통 사용안함
+)
+
+
+
+10시 40분에 만나서 회의 참석
+장소 : 카마타
+회의는 : 츠루미
