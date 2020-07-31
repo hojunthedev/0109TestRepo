@@ -44,9 +44,3 @@ connect(
   [mergeProps],		--함수형파라미터, state와 dispatch를 파라메터로 가져서, 만약 component에 연결할... 잘사용x
   [options]		--객체형태, {[pure = true], [withRef=false]}보통 사용안함
 )
-
-
-
-10시 40분에 만나서 회의 참석
-장소 : 카마타
-회의는 : 츠루미
