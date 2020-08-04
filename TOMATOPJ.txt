@@ -139,3 +139,20 @@ ModalOS.js 처럼 체크박스를 렌더링 하자.
 토마토 프로젝트에서 내 역할은 여기까지가 되었다.
 다시 C#으로 열심히 하고 돌아오자. 
 칸다로 겐바가 되서 다행이다
+
+0804 마지막 리덕스스토어 업데이트
+
+리듀서의 액션결과를 표현할때
+export default function skillUpdate(state = initialState, action) {
+  switch (action.type) {
+    case types.UPDATE_SKILL_DETAIL:
+      alert("in?");
+      return {
+        state: action.state,
+      };
+    default:
+      return state;
+  }
+}
+action이 일어난 곳에서 들고온 state 로 덮어쓰기 한다는 뜻.
+해결
