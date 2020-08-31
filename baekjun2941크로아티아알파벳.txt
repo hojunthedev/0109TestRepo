@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic; 
+using System.Linq;
+
+class MainClass {
+  public static void Main (string[] args) {
+    var inputString = Console.ReadLine();
+    var croats = new List<string>{
+      "c=", "c-", "dz=", "d-", 
+      "lj", "nj", "s=", "z="
+    };
+    
+    int count = 0;
+
+    foreach(var croat in croats){
+      if(inputString.Contains(croat)){
+        int startLen = inputString.Length;
+        var repStr = inputString.Replace(croat, "");
+        int afterLen = repStr.Length;
+
+        int minus = startLen - afterLen;
+
+        count++;
+        inputString = repStr;
+      }
+    }
+
+    
+    //남은 문자열에서 같은 문자 등장시, 하나로 치기
+    var remainStr = inputString.Distinct().ToList();
+    //문제발생 nljj의 경우 lj가 잘라진 후 n과 j가 붙어버림
+    count += remainStr.Count;
+
+
+    Console.WriteLine(inputString);
+    Console.WriteLine(count);
+  }
+}
