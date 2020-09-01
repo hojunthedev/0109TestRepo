@@ -36,3 +36,36 @@ class MainClass {
     Console.WriteLine(count);
   }
 }
+
+
+======================0901==========================
+using System;
+using System.Collections.Generic; 
+
+class MainClass {
+  public static void Main (string[] args) {
+    string inputString = Console.ReadLine();
+    var croats = new List<string>{
+      "c=", "c-", "dz=", "d-", 
+      "lj", "nj", "s=", "z="
+    };
+    var copyString = inputString;
+
+    int count = 0;
+    foreach(var croat in croats){
+      while(inputString.Contains(croat)){
+        int startIndex = inputString.IndexOf(croat);
+        int targetLen = croat.Length;
+ 
+        inputString = inputString.Remove(startIndex, targetLen);
+        inputString = inputString.Insert(startIndex, "@");
+        
+        count++;
+      }
+    }
+    var remainStr = inputString.Replace("@","");
+    count += remainStr.Length;
+
+    Console.WriteLine(count);
+  }
+}
