@@ -54,3 +54,5 @@ Select(s => new{
 
 살려주세요!
 조금만더하자
+
+comobject는 불편해
