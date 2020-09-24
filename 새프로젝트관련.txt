@@ -56,3 +56,5 @@ Select(s => new{
 조금만더하자
 
 comobject는 불편해
+
+다음주면 현장 끝(아마)
