@@ -1,0 +1,52 @@
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class MainClass {
+  public static void Main (string[] args) {
+    var count = int.Parse(Console.ReadLine());
+    var list = new List<string>();
+    var judgeList = new List<string>();
+    int i=0;
+    int result = 0;
+    
+
+    while(i<count){
+      var inputValue = Console.ReadLine();
+      list.Add(inputValue);
+      i++;
+    }
+    
+    foreach(var value in list){
+      
+      var valCount = value.Length;
+
+      if(valCount == 1)
+      {
+        result++;
+        break;
+      }
+      for(int p=0;p<valCount;p++)
+      {
+        if(p != valCount-1)
+        {
+          var one = value[p].ToString();
+          var two = value[p+1].ToString();
+          if(one != two) judgeList.Add(one);
+        }
+        else
+        {
+          var one = value[p-1].ToString();
+          var two = value[p].ToString();
+          if(one != two) judgeList.Add(two);
+        }
+      }
+      var orgList = list.ToList();
+      list.Distinct();
+
+      if(orgList.Count == list.Count) result++;
+    }
+    
+    Console.WriteLine(result);
+  }
+}
