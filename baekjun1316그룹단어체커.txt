@@ -1,52 +1,83 @@
 using System;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
-class MainClass {
-  public static void Main (string[] args) {
-    var count = int.Parse(Console.ReadLine());
-    var list = new List<string>();
-    var judgeList = new List<string>();
-    int i=0;
-    int result = 0;
-    
-
-    while(i<count){
-      var inputValue = Console.ReadLine();
-      list.Add(inputValue);
-      i++;
-    }
-    
-    foreach(var value in list){
-      
-      var valCount = value.Length;
-
-      if(valCount == 1)
-      {
-        result++;
-        break;
-      }
-      for(int p=0;p<valCount;p++)
-      {
-        if(p != valCount-1)
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
         {
-          var one = value[p].ToString();
-          var two = value[p+1].ToString();
-          if(one != two) judgeList.Add(one);
-        }
-        else
-        {
-          var one = value[p-1].ToString();
-          var two = value[p].ToString();
-          if(one != two) judgeList.Add(two);
-        }
-      }
-      var orgList = list.ToList();
-      list.Distinct();
+            var count = int.Parse(Console.ReadLine());
+            var list = new List<string>();
+            
+            int i = 0;
+            int result = 0;
 
-      if(orgList.Count == list.Count) result++;
+            while (i < count)
+            {
+                var inputValue = Console.ReadLine();
+                list.Add(inputValue);
+                i++;
+            }
+
+            foreach (var value in list)
+            {
+                var judgeList = new List<string>();
+                var valCount = value.Length;
+                bool tfSwitch = false;
+
+                if (valCount == 1)
+                {
+                    result++;
+                    continue;
+                }
+                for (int p = 0; p < valCount; p++)
+                {
+                    if (p != valCount - 1)
+                    {
+                        var one = value[p].ToString();
+                        var two = value[p + 1].ToString();
+                        if (one != two) judgeList.Add(one);
+                        else
+                        {
+                            foreach(var listValue in judgeList)
+                            {
+                                if (listValue == one)
+                                {
+                                    tfSwitch = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        var one = value[p - 1].ToString();
+                        var two = value[p].ToString();
+                        if (one != two) judgeList.Add(two);
+                    }
+
+                    if (tfSwitch) break;
+                }
+
+                if (!tfSwitch)
+                {
+                    var orgList = judgeList.ToList();
+                    judgeList = judgeList.Distinct().ToList();
+
+                    if (orgList.Count == judgeList.Count) result++;
+                }
+            }
+
+            Console.WriteLine(result);
+        }
     }
-    
-    Console.WriteLine(result);
-  }
 }
+
+
+REVIEW
+한글자 여러줄 나오는 케이스
+한번나온 글자가 뒤에 또 연속해서 나오는 케이스
+다른사람소스도 보자
+
